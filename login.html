@@ -1,22 +1,81 @@
 <!doctype html>
-<html lang="en"><head>
+<html lang="en">
+<head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Login</title>
   <link rel="stylesheet" href="css/style.css">
-</head><body>
-<div class="content auth">
-  <h2>Login</h2>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+    .auth-card {
+      background: rgba(0,0,0,0.6);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      z-index: 2;
+    }
+    .auth-card h2 {
+      color: #00aaff;
+      margin-bottom: 15px;
+    }
+    .auth-card input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+    }
+    .auth-card button {
+      width: 48%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: none;
+      background: #00aaff;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .auth-card a {
+      color: #00aaff;
+      text-decoration: none;
+      display: block;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+<div id="particles-js"></div>
+<div class="auth-card">
+  <h2>Utkarsh</h2>
+  <p>Login to access Resume & Projects</p>
   <form id="loginForm">
-    <input type="email" id="loginEmail" placeholder="Email" required><br><br>
-    <input type="password" id="loginPassword" placeholder="Password" required><br><br>
-    <label><input type="checkbox" id="rememberMe"> Remember me</label><br><br>
-    <button type="submit" class="btn">Login</button>
+    <input type="email" id="loginEmail" placeholder="Email" required>
+    <input type="password" id="loginPassword" placeholder="Password (min 6 chars)" required>
+    <label style="display:flex;align-items:center;gap:8px;margin-top:10px;">
+      <input type="checkbox" id="rememberMe"> Remember me
+    </label>
+    <div style="display:flex;justify-content:space-between;gap:4%;margin-top:10px;">
+      <button type="submit">Login</button>
+      <button type="button" onclick="window.location.href='signup.html'">Create account</button>
+    </div>
+    <a href="reset.html">Forgot password?</a>
   </form>
-  <p><a href="reset.html">Forgot Password?</a></p>
-  <p>Don't have an account? <a href="signup.html" target="_blank">Sign Up</a></p>
 </div>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="js/particles.min.js"></script>
 <script src="js/app.js"></script>
-</body></html>
+</body>
+</html>
