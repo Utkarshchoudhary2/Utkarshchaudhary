@@ -22,3 +22,56 @@ document.getElementById('signupForm')?.addEventListener('submit', (e)=>{ e.preve
 document.getElementById('resetForm')?.addEventListener('submit', (e)=>{ e.preventDefault(); const email=document.getElementById('resetEmail').value; firebase.auth().sendPasswordResetEmail(email).then(()=>showToast('Reset email sent')).catch(err=>showToast(err.message)); });
 
 document.getElementById('contactForm')?.addEventListener('submit', (e)=>{ e.preventDefault(); showToast('Message sent (dummy)'); document.getElementById('contactForm').reset(); });
+
+
+// Enhanced signup with verification and resend countdown
+document.getElementById('signupForm')?.addEventListener('submit', (e)=>{
+  e.preventDefault();
+  const name=document.getElementById('signupName').value;
+  const email=document.getElementById('signupEmail').value;
+  const pass=document.getElementById('signupPassword').value;
+  const confirm=document.getElementById('signupConfirm').value;
+  if(pass!==confirm){ showToast('Passwords do not match'); return; }
+  firebase.auth().createUserWithEmailAndPassword(email,pass)
+    .then((cred)=>{
+      cred.user.updateProfile({displayName:name});
+      cred.user.sendEmailVerification();
+      showToast('Verification email sent');
+      document.getElementById('verificationSection').style.display='block';
+      let counter=60;
+      const btn=document.getElementById('resendBtn');
+      btn.disabled=true;
+      btn.innerText='Resend ('+counter+'s)';
+      let timer=setInterval(()=>{
+        counter--;
+        btn.innerText='Resend ('+counter+'s)';
+        if(counter<=0){ clearInterval(timer); btn.disabled=false; btn.innerText='Resend'; }
+      },1000);
+      btn.onclick=()=>{
+        cred.user.sendEmailVerification();
+        showToast('Verification email resent');
+        counter=60;
+        btn.disabled=true;
+        btn.innerText='Resend ('+counter+'s)';
+        timer=setInterval(()=>{
+          counter--;
+          btn.innerText='Resend ('+counter+'s)';
+          if(counter<=0){ clearInterval(timer); btn.disabled=false; btn.innerText='Resend'; }
+        },1000);
+      };
+    })
+    .catch(err=>showToast(err.message));
+});
+
+// Enhanced login with remember me
+document.getElementById('loginForm')?.addEventListener('submit', (e)=>{
+  e.preventDefault();
+  const email=document.getElementById('loginEmail').value;
+  const pass=document.getElementById('loginPassword').value;
+  const remember=document.getElementById('rememberMe').checked;
+  const persistence= remember ? firebase.auth.Auth.Persistence.LOCAL : firebase.auth.Auth.Persistence.SESSION;
+  firebase.auth().setPersistence(persistence)
+    .then(()=>firebase.auth().signInWithEmailAndPassword(email,pass))
+    .then(()=>{ showToast('Login successful'); window.location.href='projects.html'; })
+    .catch(err=>showToast(err.message));
+});
