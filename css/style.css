@@ -227,3 +227,9 @@ h1, h2, h3, h4, h5, h6, p, span, a, li, label, .section-text {
   color: #ffffff !important;
   text-shadow: 0 0 5px rgba(0,0,0,0.8), 0 0 10px rgba(0,0,0,0.6);
 }
+
+/* Strong white text with shadow to match sidebar and welcome style */
+body, h1, h2, h3, h4, h5, h6, p, span, a, li, label, .section-text, .card-title, .card-text {
+  color: #ffffff !important;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.9);
+}
