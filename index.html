@@ -1,17 +1,31 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Home</title>
-<link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/></head><body>
+<!doctype html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Home</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head><body>
 <div class="hamburger"><i class="fas fa-bars"></i></div>
-<div class="sidebar"><ul>
-<li><a href="index.html"><i class="fas fa-home"></i><span>Home</span></a></li>
-<li><a href="about.html"><i class="fas fa-user"></i><span>About</span></a></li>
-<li><a href="projects.html"><i class="fas fa-layer-group"></i><span>Projects</span></a></li>
-<li><a href="contact.html"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
-<li><a href="assets/Utkarsh_Modern_Resume.pdf" target="_blank"><i class="fas fa-file-alt"></i><span>Resume</span></a></li>
-<li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
-</ul></div>
-<div class="content"><h1 data-aos="fade-up">Welcome — Diploma vs 11th/12th</h1><p data-aos="fade-up">Compare paths, tips and projects.</p></div>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="js/app.js"></script></body></html>
+<div class="sidebar" id="sidebar">
+  <div class="profile">U</div>
+  <ul>
+    <li><a href="index.html"><i class="fas fa-home"></i><span>Home</span></a></li>
+    <li><a href="about.html"><i class="fas fa-user"></i><span>About</span></a></li>
+    <li><a href="projects.html"><i class="fas fa-layer-group"></i><span>Projects</span></a></li>
+    <li><a href="contact.html"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
+    <li><a href="resume.html"><i class="fas fa-file-alt"></i><span>Resume</span></a></li>
+    <li><a href="login.html"><i class="fas fa-sign-in-alt"></i><span>Login</span></a></li>
+  </ul>
+</div>
+<div class="content">
+  <h1>Hi — I'm Utkarsh Chaudhary</h1>
+  <p>Aspiring Software Developer • Web, Cybersecurity & Game Design. Diploma + B.Tech student building modern, secure and interactive experiences.</p>
+  <a class="btn" href="resume.html">View Resume</a>
+</div>
+<script>
+document.querySelector('.hamburger').addEventListener('click',()=>{
+  document.getElementById('sidebar').classList.toggle('open');
+});
+</script>
+</body></html>
