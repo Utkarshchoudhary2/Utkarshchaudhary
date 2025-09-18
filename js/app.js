@@ -17,6 +17,41 @@ firebase.auth().onAuthStateChanged(user=>{
   }
 });
 
+// Login
+document.getElementById("loginForm")?.addEventListener("submit", (e)=>{
+  e.preventDefault();
+  const email=document.getElementById("loginEmail").value;
+  const pass=document.getElementById("loginPassword").value;
+  firebase.auth().signInWithEmailAndPassword(email, pass)
+    .then(()=> {
+      showToast("Login Successful");
+      window.location.href="projects.html";
+    })
+    .catch(err=> showToast(err.message));
+});
+
+// Signup
+document.getElementById("signupForm")?.addEventListener("submit", (e)=>{
+  e.preventDefault();
+  const email=document.getElementById("signupEmail").value;
+  const pass=document.getElementById("signupPassword").value;
+  firebase.auth().createUserWithEmailAndPassword(email, pass)
+    .then(()=> {
+      showToast("Account Created");
+      window.location.href="projects.html";
+    })
+    .catch(err=> showToast(err.message));
+});
+
+// Reset Password
+document.getElementById("resetForm")?.addEventListener("submit", (e)=>{
+  e.preventDefault();
+  const email=document.getElementById("resetEmail").value;
+  firebase.auth().sendPasswordResetEmail(email)
+    .then(()=> showToast("Reset email sent"))
+    .catch(err=> showToast(err.message));
+});
+
 // Logout
 document.getElementById("logoutBtn")?.addEventListener("click", ()=>{
   firebase.auth().signOut().then(()=> showToast("Logged out!"));
