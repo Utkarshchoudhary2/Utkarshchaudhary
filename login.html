@@ -1,22 +1,7 @@
-<!doctype html>
-<html lang="en"><head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Login</title>
-  <link rel="stylesheet" href="css/style.css">
-</head><body>
-<div class="content auth">
-  <h2>Login</h2>
-  <form id="loginForm">
-    <input type="email" id="loginEmail" placeholder="Email" required><br><br>
-    <input type="password" id="loginPassword" placeholder="Password" required><br><br>
-    <label><input type="checkbox" id="rememberMe"> Remember me</label><br><br>
-    <button type="submit" class="btn">Login</button>
-  </form>
-  <p><a href="reset.html">Forgot Password?</a></p>
-  <p>Don't have an account? <a href="signup.html" target="_blank">Sign Up</a></p>
-</div>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-<script src="js/app.js"></script>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Login - Utkarsh</title>
+<link rel="stylesheet" href="assets/style.css"></head><body>
+<div id="global-loader" class="loader-wrap"><div><div class="loader"></div><div class="loader-text">Utkarsh Portfolio Loading…</div></div></div>
+<div class="center-wrap"><div class="card"><h2>Welcome back</h2><p class="small">Sign in to access the portfolio</p><input id="email" class="input" placeholder="Email / Username"><input id="password" class="input" placeholder="Password" type="password"><label style="display:flex;align-items:center;gap:8px"><input id="remember" type="checkbox"> <span class="small">Remember me</span></label><button id="loginBtn" class="btn">Sign in</button><p class="small" style="margin-top:8px">Don't have an account? <a href="signup.html">Sign up</a></p><p class="small" style="margin-top:10px;color:var(--muted)">Demo: test@demo.com / 123456 or admin / 1234</p></div></div>
+<script src="assets/auth-client.js"></script>
+<script src="assets/script.js"></script>
 </body></html>

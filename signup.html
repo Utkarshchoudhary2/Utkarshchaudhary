@@ -1,26 +1,7 @@
-<!doctype html>
-<html lang="en"><head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Sign Up</title>
-  <link rel="stylesheet" href="css/style.css">
-</head><body>
-<div class="content auth">
-  <h2>Sign Up</h2>
-  <form id="signupForm" target="_blank">
-    <input type="text" id="signupName" placeholder="Username" required><br><br>
-    <input type="email" id="signupEmail" placeholder="Email" required><br><br>
-    <input type="password" id="signupPassword" placeholder="Password" required><br><br>
-    <input type="password" id="signupConfirm" placeholder="Confirm Password" required><br><br>
-    <button type="submit" class="btn">Sign Up</button>
-  </form>
-  <div id="verificationSection" style="display:none;margin-top:20px;">
-    <p>Verification email sent. Please check your inbox.</p>
-    <button id="resendBtn" class="btn" disabled>Resend (60s)</button>
-  </div>
-  <p>Already have an account? <a href="login.html">Login</a></p>
-</div>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-<script src="js/app.js"></script>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sign Up - Utkarsh</title>
+<link rel="stylesheet" href="assets/style.css"></head><body>
+<div id="global-loader" class="loader-wrap"><div><div class="loader"></div><div class="loader-text">Utkarsh Portfolio Loading…</div></div></div>
+<div class="center-wrap"><div class="card"><h2>Create account</h2><p class="small">Register to access the portfolio</p><input id="email" class="input" placeholder="Email"><input id="password" class="input" placeholder="Password" type="password"><label style="display:flex;align-items:center;gap:8px"><input id="remember" type="checkbox"> <span class="small">Remember me</span></label><button id="signupBtn" class="btn">Sign up</button><p class="small" style="margin-top:8px">Already have an account? <a href="login.html">Login</a></p></div></div>
+<script src="assets/auth-client.js"></script>
+<script src="assets/script.js"></script>
 </body></html>
