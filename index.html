@@ -1,39 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Utkarsh Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://kit.fontawesome.com/a2e0fc3712.js" crossorigin="anonymous"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login — Utkarsh Portfolio</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
-<body>
-  <!-- Hamburger -->
-  <div class="hamburger" onclick="toggleSidebar()">☰</div>
+<body class="dark">
 
-  <!-- Sidebar -->
-  <div class="sidebar" id="sidebar">
-    <div class="profile">
-      <div class="avatar">U</div>
+  <div id="particles-js" style="position:fixed;inset:0;z-index:0"></div>
+
+  <main style="position:relative;z-index:10;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;">
+    <div class="card glass" data-aos="zoom-in" style="max-width:420px;width:100%;text-align:center;">
+      <div style="font-size:28px;font-weight:800;margin-bottom:8px;color:var(--accent)">Utkarsh</div>
+      <p style="color:var(--muted);margin-bottom:18px">Login to access Resume & Projects</p>
+
+      <input id="email" class="input" type="email" placeholder="Email" />
+      <input id="password" class="input" type="password" placeholder="Password" />
+      <label style="display:flex;align-items:center;gap:8px;justify-content:center;margin-top:6px">
+        <input id="rememberMe" type="checkbox" /> <span style="color:var(--muted)">Remember me</span>
+      </label>
+
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:14px">
+        <button id="loginBtn" class="btn">Login</button>
+        <button id="signupBtn" class="btn ghost">Sign up</button>
+      </div>
+
+      <p style="margin-top:12px"><a href="#" id="resetBtn" class="link">Forgot password?</a></p>
     </div>
-    <a href="index.html"><i class="fas fa-home"></i></a>
-    <a href="about.html"><i class="fas fa-user"></i></a>
-    <a href="projects.html"><i class="fas fa-box"></i></a>
-    <a href="game.html"><i class="fas fa-gamepad"></i></a>
-    <a href="contact.html"><i class="fas fa-envelope"></i></a>
-    <a href="resume.pdf" target="_blank"><i class="fas fa-file"></i></a>
-    <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i></a>
-  </div>
-
-  <!-- Main content -->
-  <main>
-    <h1>Welcome, Utkarsh 👋</h1>
-    <p>This is the professional, modern portfolio home page.</p>
   </main>
 
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-  <script src="firebase-config.js"></script>
-  <script src="app.js"></script>
+  <div id="toast-wrap" aria-live="polite"></div>
+
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script src="js/app.js"></script>
+  <script>
+    AOS.init();
+    if(window.particlesJS) {
+      particlesJS('particles-js', {
+        "particles": {
+          "number": { "value": 40 },
+          "color": { "value": "#00bfff" },
+          "opacity": { "value": 0.12 },
+          "size": { "value": 3 },
+          "move": { "speed": 0.6 }
+        }, "interactivity": { "events": { "onhover": { "enable": true, "mode": "repulse" } } }
+      });
+    }
+  </script>
 </body>
 </html>

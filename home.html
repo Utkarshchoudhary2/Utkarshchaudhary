@@ -1,54 +1,86 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Utkarsh Portfolio</title>
-  <link rel="stylesheet" href="css/style.css"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Home — Utkarsh Portfolio</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body class="dark">
 
-  <!-- Sidebar -->
-  <nav class="sidebar">
-    <div class="profile-icon">U</div>
-    <a href="#" id="homeLink">🏠</a>
-    <a href="#">👤</a>
-    <a href="#" id="sidebar-projects">📂</a>
-    <a href="assets/Utkarsh_Modern_Resume.pdf" target="_blank">📄</a>
-    <a href="contact.html">✉️</a>
-    <a href="#" id="logoutBtn">🚪</a>
-  </nav>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-top">
+      <div class="logo">U</div>
+      <nav class="nav">
+        <a href="home.html" class="nav-link">🏠 Home</a>
+        <a href="about.html" class="nav-link">👤 About</a>
+        <a href="#" id="sidebar-projects" class="nav-link">📂 Projects</a>
+      </nav>
+    </div>
 
-  <!-- Hamburger -->
-  <button class="hamburger" id="hamburger">☰</button>
+    <div class="sidebar-bottom">
+      <a href="#" id="sidebar-resume" class="nav-link resume-link">📄 Resume</a>
+      <button id="logoutBtn" class="icon-btn" title="Logout">⏻</button>
+    </div>
+  </aside>
 
-  <!-- Content -->
-  <main class="content">
-    <h1 id="welcome-title">Welcome, Utkarsh 👋</h1>
-    <p>This is the professional, modern portfolio home page.</p>
-
-    <section id="projects-section">
-      <h2>Projects</h2>
-      <div class="project-card">
-        <h3>Portfolio Website</h3>
-        <button class="btn">View Demo</button>
-      </div>
-      <div class="project-card">
-        <h3>Secure Login System</h3>
-        <button class="btn">View Demo</button>
-      </div>
-      <div class="project-card">
-        <h3>2D Game Demo</h3>
-        <button class="btn">Play Demo</button>
+  <main class="main-content">
+    <section class="hero" data-aos="fade-up">
+      <div class="welcome-card">
+        <h1 id="welcome-title">Welcome, Utkarsh 👋</h1>
+        <p id="welcome-sub">Diploma + B.Tech — Web, Cybersecurity & Game Design</p>
+        <div style="margin-top:18px">
+          <button class="btn" onclick="openProjectsIfAuth()">View Projects</button>
+          <button class="btn" onclick="openResumeIfAuth()">My Resume</button>
+        </div>
       </div>
     </section>
   </main>
 
-  <div id="toast-wrap"></div>
-  <div id="modal-backdrop"></div>
+  <div id="modal-backdrop" class="modal-backdrop" aria-hidden="true">
+    <div id="modal-resume" class="modal" role="dialog" aria-modal="true" aria-labelledby="resume-title" style="display:none;position:relative;">
+      <button class="close-x" data-target="modal-resume">✖</button>
+      <h3 id="resume-title">Resume</h3>
+      <div class="row">
+        <div class="left">
+          <iframe class="pdf-frame" id="resume-iframe" src="assets/Utkarsh_Modern_Resume.pdf"></iframe>
+        </div>
+        <div class="right">
+          <p style="color:var(--muted)">View or download my resume</p>
+          <a id="open-resume" class="btn" target="_blank" href="assets/Utkarsh_Modern_Resume.pdf">Open in new tab</a>
+          <button id="download-resume" class="btn" style="margin-top:12px">Download Resume</button>
+        </div>
+      </div>
+    </div>
 
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <div id="modal-projects" class="modal" role="dialog" aria-modal="true" aria-labelledby="projects-title" style="display:none;position:relative;">
+      <button class="close-x" data-target="modal-projects">✖</button>
+      <h3 id="projects-title">Projects</h3>
+      <div class="projects-grid">
+        <div class="project-card" data-aos="fade-up">
+          <h4>Portfolio Website</h4>
+          <p>My portfolio site showcasing skills & projects.</p>
+          <button class="btn" onclick="window.open('https://utkarsh-chaudhary-pi.vercel.app','_blank')">View Demo</button>
+        </div>
+        <div class="project-card" data-aos="fade-up">
+          <h4>Secure Login System</h4>
+          <p>Firebase-based secure login demo.</p>
+          <button class="btn" onclick="window.open('projects/secure-login/client/login.html','_blank')">Try Demo</button>
+        </div>
+        <div class="project-card" data-aos="fade-up">
+          <h4>2D Platformer Game</h4>
+          <p>Play the platformer prototype.</p>
+          <button class="btn" onclick="window.open('projects/platformer/index.html','_blank')">Play Demo</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast-wrap" aria-live="polite"></div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="js/app.js"></script>
+  <script> AOS.init(); </script>
 </body>
 </html>
