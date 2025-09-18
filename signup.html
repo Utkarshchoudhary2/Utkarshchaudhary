@@ -1,26 +1,108 @@
 <!doctype html>
-<html lang="en"><head>
+<html lang="en">
+<head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Sign Up</title>
   <link rel="stylesheet" href="css/style.css">
-</head><body>
-<div class="content auth">
-  <h2>Sign Up</h2>
-  <form id="signupForm" target="_blank">
-    <input type="text" id="signupName" placeholder="Username" required><br><br>
-    <input type="email" id="signupEmail" placeholder="Email" required><br><br>
-    <input type="password" id="signupPassword" placeholder="Password" required><br><br>
-    <input type="password" id="signupConfirm" placeholder="Confirm Password" required><br><br>
-    <button type="submit" class="btn">Sign Up</button>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+    .auth-card {
+      background: rgba(0,0,0,0.6);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      z-index: 2;
+    }
+    .auth-card h2 {
+      color: #00aaff;
+      margin-bottom: 15px;
+    }
+    .auth-card input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+    }
+    .auth-card button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: none;
+      background: #00aaff;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .auth-card a {
+      color: #00aaff;
+      text-decoration: none;
+      display: block;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+<div id="particles-js"></div>
+<div class="auth-card">
+  <h2>Utkarsh</h2>
+  <p>Create your account</p>
+  <form id="signupForm">
+    <input type="text" id="signupName" placeholder="Full name (for profile)" required>
+    <input type="email" id="signupEmail" placeholder="Email" required>
+    <input type="password" id="signupPassword" placeholder="Password (min 6 chars)" required>
+    <input type="password" id="confirmPassword" placeholder="Confirm password" required>
+    <label style="display:flex;align-items:center;gap:8px;margin-top:10px;">
+      <input type="checkbox" id="rememberMe"> Remember me
+    </label>
+    <button type="submit">Sign Up</button>
+    <a href="login.html">Already have an account? Login</a>
   </form>
-  <div id="verificationSection" style="display:none;margin-top:20px;">
-    <p>Verification email sent. Please check your inbox.</p>
-    <button id="resendBtn" class="btn" disabled>Resend (60s)</button>
-  </div>
-  <p>Already have an account? <a href="login.html">Login</a></p>
 </div>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="js/particles.min.js"></script>
 <script src="js/app.js"></script>
-</body></html>
+
+    <div id="particles-js"></div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+      particlesJS("particles-js", {
+        "particles": {
+          "number": { "value": 80 },
+          "size": { "value": 3 }
+        },
+        "interactivity": {
+          "events": {
+            "onhover": { "enable": true, "mode": "repulse" }
+          }
+        }
+      });
+    </script>
+    <style>
+      #particles-js {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        background: #000;
+      }
+    </style>
+    
+</body>
+</html>
