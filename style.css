@@ -1,0 +1,144 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0d0d0d;
+  color: #fff;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#particles-js {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -1;
+}
+
+.auth-container {
+  width: 350px;
+  margin: 100px auto;
+  background: rgba(20,20,20,0.9);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.7);
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.tabs button {
+  flex: 1;
+  padding: 10px;
+  background: none;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+}
+
+.tabs button.active {
+  border-bottom: 2px solid #007bff;
+  color: #fff;
+}
+
+.form {
+  display: none;
+}
+
+.form.active {
+  display: block;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #444;
+  background: #222;
+  color: #fff;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(90deg, #007bff, #00d4ff);
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.error {
+  color: red;
+  font-size: 0.9em;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  left: 0; top: 0;
+  width: 60px;
+  height: 100%;
+  background: #111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: width 0.3s;
+  overflow: hidden;
+}
+
+.sidebar.expanded {
+  width: 200px;
+}
+
+.sidebar button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.sidebar li {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.sidebar li i {
+  margin-right: 10px;
+}
+
+.sidebar li span {
+  display: none;
+}
+
+.sidebar.expanded li span {
+  display: inline;
+}
+
+.main {
+  margin-left: 60px;
+  padding: 20px;
+  transition: margin-left 0.3s;
+}
+
+.sidebar.expanded ~ .main {
+  margin-left: 200px;
+}

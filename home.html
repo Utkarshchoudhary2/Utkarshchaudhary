@@ -1,24 +1,49 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Home - Utkarsh</title>
-<link rel="stylesheet" href="assets/style.css">
-<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head><body>
-<button class="hamburger" aria-label="menu"><i class="fa-solid fa-bars"></i></button>
-<button class="theme-toggle" aria-label="theme"><i class="fa-regular fa-moon"></i></button>
-<aside class="sidebar" role="navigation" aria-label="Main sidebar">
-  <div class="logo">U</div>
-  <div class="logo-text">Utkarsh</div>
-  <nav class="nav" role="menu">
-    <a href="home.html" class="nav-link"><i class="fa-solid fa-house"></i><span>Home</span></a>
-    <a href="about.html" class="nav-link"><i class="fa-solid fa-user"></i><span>About</span></a>
-    <a href="projects.html" class="nav-link"><i class="fa-solid fa-layer-group"></i><span>Projects</span></a>
-    <a href="game.html" class="nav-link"><i class="fa-solid fa-gamepad"></i><span>Game</span></a>
-    <a href="contact.html" class="nav-link"><i class="fa-solid fa-envelope"></i><span>Contact</span></a>
-  </nav>
-  <a class="resume-btn" href="assets/resume.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-file-pdf"></i><span>Resume</span></a>
-</aside>
-<div id="particles-js-full"></div><main><section class="section hero container"><div class="container" data-aos="fade-up"><h1>Hi — I'm Utkarsh Chaudhary</h1><p class="lead">Diploma + B.Tech student · Web, Cybersecurity & Game Design</p></div></section></main>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-<script src="assets/script.js"></script>
-</body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module">
+    import { app } from "./firebase-config.js";
+    import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+    const auth = getAuth(app);
+    document.addEventListener('DOMContentLoaded', () => {
+      const userNameEl = document.getElementById('username');
+      onAuthStateChanged(auth, (user) => {
+        if (user && user.displayName) {
+          userNameEl.textContent = "Welcome, " + user.displayName + " 👋";
+        } else if (user) {
+          userNameEl.textContent = "Welcome 👋";
+        } else {
+          window.location.href = "index.html";
+        }
+      });
+      document.getElementById('logoutBtn').addEventListener('click', () => {
+        signOut(auth).then(() => window.location.href = "index.html");
+      });
+      document.getElementById('menuToggle').addEventListener('click', () => {
+        document.querySelector('.sidebar').classList.toggle('expanded');
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="sidebar">
+    <button id="menuToggle">☰</button>
+    <ul>
+      <li><i>🏠</i><span>Home</span></li>
+      <li><i>👤</i><span>Profile</span></li>
+      <li><i>📂</i><span>Projects</span></li>
+      <li><i>✉️</i><span>Mail</span></li>
+      <li><i>📄</i><span>Docs</span></li>
+      <li id="logoutBtn"><i>🚪</i><span>Logout</span></li>
+    </ul>
+  </div>
+  <div class="main">
+    <h2 id="username">Welcome 👋</h2>
+    <p>This is your portfolio home page.</p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Verify Email</title><link rel="stylesheet" href="css/style.css"/></head><body class="dark">
+<main style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px">
+  <div class="card glass" style="max-width:560px;text-align:center">
+    <h2 style="color:var(--accent)">Email verification</h2>
+    <p style="color:var(--muted)">To resend a verification email, enter the same account details below. This will sign you in temporarily to send the verification, then sign out.</p>
+    <input id="verify-email" class="input" placeholder="Email"/>
+    <input id="verify-password" class="input" placeholder="Password" type="password"/>
+    <div style="display:flex;gap:12px;justify-content:center;margin-top:12px">
+      <button id="resendVerify" class="btn">Resend verification</button>
+      <a href="index.html" class="btn ghost">Back to Login</a>
+    </div>
+    <p style="margin-top:12px;color:var(--muted)">After clicking the verification link in your email you will be redirected back and can then log in.</p>
+  </div>
+</main>
+<div id="toast-wrap"></div>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="js/app.js"></script>
+</body></html>
