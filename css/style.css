@@ -233,3 +233,14 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, li, label, .section-text, .card-title,
   color: #ffffff !important;
   text-shadow: 0 2px 4px rgba(0,0,0,0.9);
 }
+
+/* Ensure particles stay in background */
+#tsparticles {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1 !important;
+    pointer-events: none !important;
+}
