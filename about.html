@@ -1,20 +1,35 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>About - Utkarsh</title>
-<link rel="stylesheet" href="assets/style.css"></head><body>
-<button class="hamburger" aria-label="menu">☰</button>
-<aside class="sidebar" role="navigation">
-  <div class="logo">U</div><div class="logo-text">Utkarsh</div>
-  <nav class="nav">
-    <a href="index.html"><i>🏠</i><span>Home</span></a>
-    <a href="about.html"><i>👤</i><span>About</span></a>
-    <a href="projects.html"><i>🗂️</i><span>Projects</span></a>
-    <a href="game.html"><i>🎮</i><span>Game</span></a>
-    <a href="contact.html"><i>✉️</i><span>Contact</span></a>
-  </nav>
-  <a class="resume-btn" href="assets/resume.pdf" target="_blank"><i>📄</i><span>Resume</span></a>
-  <button id="logoutBtn" style="margin-top:8px;background:transparent;border:none;color:var(--muted);cursor:pointer;padding:8px;border-radius:8px">Logout</button>
-</aside>
-<div id="global-loader" class="loader-wrap"><div><div class="loader"></div><div class="loader-text">Utkarsh Portfolio Loading…</div></div></div>
-<main><section class="section container"><h2>About</h2><p class="lead">I build web apps, secure systems and games. Currently doing Diploma + B.Tech.</p></section></main>
-<div class="toast-wrap"></div>
-<script src="assets/script.js"></script>
-</body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>About — Utkarsh Portfolio</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="dark">
+
+  <aside id="sidebar" class="sidebar">
+    <div class="brand">Utkarsh</div>
+    <nav>
+      <a href="home.html" class="nav-link"><i class="icon-home"></i> Home</a>
+      <a href="about.html" class="nav-link active"><i class="icon-user"></i> About</a>
+      <a href="contact.html" class="nav-link"><i class="icon-mail"></i> Contact</a>
+      <a href="#" id="sidebar-projects" class="nav-link"><i class="icon-folder"></i> Projects</a>
+      <a href="assets/Utkarsh_Modern_Resume.pdf" target="_blank" class="nav-link"><i class="icon-file"></i> Resume</a>
+    </nav>
+    <button id="logoutBtn" class="logout-btn"><i class="icon-logout"></i></button>
+  </aside>
+
+  <button id="hamburger" class="hamburger">&#9776;</button>
+
+  <main class="content" data-aos="fade-up">
+    <h1>About Me</h1>
+    <p>Hello, I am Utkarsh Chaudhary. This is my professional and modern portfolio. 🚀</p>
+  </main>
+
+  <script src="js/app.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>

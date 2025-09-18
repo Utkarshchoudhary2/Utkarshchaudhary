@@ -1,45 +1,42 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Projects - Utkarsh</title>
-<link rel="stylesheet" href="assets/style.css"></head><body>
-<button class="hamburger" aria-label="menu">☰</button>
-<aside class="sidebar" role="navigation">
-  <div class="logo">U</div><div class="logo-text">Utkarsh</div>
-  <nav class="nav">
-    <a href="index.html"><i>🏠</i><span>Home</span></a>
-    <a href="about.html"><i>👤</i><span>About</span></a>
-    <a href="projects.html"><i>🗂️</i><span>Projects</span></a>
-    <a href="game.html"><i>🎮</i><span>Game</span></a>
-    <a href="contact.html"><i>✉️</i><span>Contact</span></a>
-  </nav>
-  <a class="resume-btn" href="assets/resume.pdf" target="_blank"><i>📄</i><span>Resume</span></a>
-  <button id="logoutBtn" style="margin-top:8px;background:transparent;border:none;color:var(--muted);cursor:pointer;padding:8px;border-radius:8px">Logout</button>
-</aside>
-<div id="global-loader" class="loader-wrap"><div><div class="loader"></div><div class="loader-text">Utkarsh Portfolio Loading…</div></div></div>
-<main>
-<section class="projects-section container">
-  <h2>Projects</h2>
-  <p class="lead">Some of my recent works</p>
-  <div class="projects-grid">
-    <div class="project-card">
-      <div class="icon">🔒</div>
-      <h3>Secure Login System</h3>
-      <p>Secure auth demo (admin / 1234). Try it.</p>
-      <a class="btn-demo" data-url="projects/secure-login/client/login.html">Try Demo</a>
-    </div>
-    <div class="project-card highlight">
-      <div class="icon">🌐</div>
-      <h3>Personal Portfolio Website</h3>
-      <p>Responsive portfolio with modern UI/UX.</p>
-      <a class="btn-demo" data-url="https://utkarsh-chaudhary-pi.vercel.app/index.html">View Demo</a>
-    </div>
-    <div class="project-card">
-      <div class="icon">🎮</div>
-      <h3>2D Platformer Game</h3>
-      <p>Play a small platformer prototype.</p>
-      <a class="btn-demo" data-url="projects/platformer/index.html">Play Demo</a>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects - Utkarsh Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="hamburger" onclick="toggleSidebar()">☰</div>
+
+  <div class="sidebar" id="sidebar">
+    <div class="profile"><div class="avatar">U</div></div>
+    <a href="index.html"><i class="fas fa-home"></i></a>
+    <a href="about.html"><i class="fas fa-user"></i></a>
+    <a href="projects.html"><i class="fas fa-box"></i></a>
+    <a href="game.html"><i class="fas fa-gamepad"></i></a>
+    <a href="contact.html"><i class="fas fa-envelope"></i></a>
+    <a href="resume.pdf" target="_blank"><i class="fas fa-file"></i></a>
+    <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i></a>
   </div>
-</section>
-</main>
-<div class="toast-wrap"></div>
-<script src="assets/script.js"></script>
-</body></html>
+
+  <main>
+    <h1>Projects</h1>
+    <div class="project-card">
+      <h2>Portfolio Website</h2>
+      <a href="index.html" target="_blank">View Demo</a>
+    </div>
+    <div class="project-card">
+      <h2>Secure Login System</h2>
+      <a href="login.html" target="_blank">View Demo</a>
+    </div>
+    <div class="project-card">
+      <h2>2D Game Demo</h2>
+      <a href="game.html">Play Demo</a>
+    </div>
+  </main>
+
+  <script src="https://kit.fontawesome.com/a2e0fc3712.js" crossorigin="anonymous"></script>
+  <script src="app.js"></script>
+</body>
+</html>
