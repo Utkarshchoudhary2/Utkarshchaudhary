@@ -214,3 +214,10 @@ body {
 }
 @keyframes fadein { from {opacity: 0;} to {opacity: 1;} }
 @keyframes fadeout { from {opacity: 1;} to {opacity: 0;} }
+
+
+/* Force text to be white for better visibility */
+h1, h2, h3, h4, h5, h6, p, span, a, li, label {
+  color: #ffffff !important;
+}
+
