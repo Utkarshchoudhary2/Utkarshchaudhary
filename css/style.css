@@ -147,3 +147,10 @@ body {
 }
 
 .content.auth .btn { width:100%; }
+
+.content-overlay {
+  position: relative;
+  z-index: 1;
+  padding: 40px;
+  color: #fff;
+}
