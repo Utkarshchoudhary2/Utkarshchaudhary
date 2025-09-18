@@ -1,54 +1,24 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Utkarsh Portfolio</title>
-  <link rel="stylesheet" href="css/style.css"/>
-</head>
-<body class="dark">
-
-  <!-- Sidebar -->
-  <nav class="sidebar">
-    <div class="profile-icon">U</div>
-    <a href="#" id="homeLink">🏠</a>
-    <a href="#">👤</a>
-    <a href="#" id="sidebar-projects">📂</a>
-    <a href="assets/Utkarsh_Modern_Resume.pdf" target="_blank">📄</a>
-    <a href="contact.html">✉️</a>
-    <a href="#" id="logoutBtn">🚪</a>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Home - Utkarsh</title>
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head><body>
+<button class="hamburger" aria-label="menu"><i class="fa-solid fa-bars"></i></button>
+<button class="theme-toggle" aria-label="theme"><i class="fa-regular fa-moon"></i></button>
+<aside class="sidebar" role="navigation" aria-label="Main sidebar">
+  <div class="logo">U</div>
+  <div class="logo-text">Utkarsh</div>
+  <nav class="nav" role="menu">
+    <a href="home.html" class="nav-link"><i class="fa-solid fa-house"></i><span>Home</span></a>
+    <a href="about.html" class="nav-link"><i class="fa-solid fa-user"></i><span>About</span></a>
+    <a href="projects.html" class="nav-link"><i class="fa-solid fa-layer-group"></i><span>Projects</span></a>
+    <a href="game.html" class="nav-link"><i class="fa-solid fa-gamepad"></i><span>Game</span></a>
+    <a href="contact.html" class="nav-link"><i class="fa-solid fa-envelope"></i><span>Contact</span></a>
   </nav>
-
-  <!-- Hamburger -->
-  <button class="hamburger" id="hamburger">☰</button>
-
-  <!-- Content -->
-  <main class="content">
-    <h1 id="welcome-title">Welcome, Utkarsh 👋</h1>
-    <p>This is the professional, modern portfolio home page.</p>
-
-    <section id="projects-section">
-      <h2>Projects</h2>
-      <div class="project-card">
-        <h3>Portfolio Website</h3>
-        <button class="btn">View Demo</button>
-      </div>
-      <div class="project-card">
-        <h3>Secure Login System</h3>
-        <button class="btn">View Demo</button>
-      </div>
-      <div class="project-card">
-        <h3>2D Game Demo</h3>
-        <button class="btn">Play Demo</button>
-      </div>
-    </section>
-  </main>
-
-  <div id="toast-wrap"></div>
-  <div id="modal-backdrop"></div>
-
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-  <script src="js/app.js"></script>
-</body>
-</html>
+  <a class="resume-btn" href="assets/resume.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-file-pdf"></i><span>Resume</span></a>
+</aside>
+<div id="particles-js-full"></div><main><section class="section hero container"><div class="container" data-aos="fade-up"><h1>Hi — I'm Utkarsh Chaudhary</h1><p class="lead">Diploma + B.Tech student · Web, Cybersecurity & Game Design</p></div></section></main>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script src="assets/script.js"></script>
+</body></html>

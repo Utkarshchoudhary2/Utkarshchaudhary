@@ -1,26 +1,27 @@
-<!doctype html>
-<html lang="en"><head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Sign Up</title>
-  <link rel="stylesheet" href="css/style.css">
-</head><body>
-<div class="content auth">
-  <h2>Sign Up</h2>
-  <form id="signupForm" target="_blank">
-    <input type="text" id="signupName" placeholder="Username" required><br><br>
-    <input type="email" id="signupEmail" placeholder="Email" required><br><br>
-    <input type="password" id="signupPassword" placeholder="Password" required><br><br>
-    <input type="password" id="signupConfirm" placeholder="Confirm Password" required><br><br>
-    <button type="submit" class="btn">Sign Up</button>
-  </form>
-  <div id="verificationSection" style="display:none;margin-top:20px;">
-    <p>Verification email sent. Please check your inbox.</p>
-    <button id="resendBtn" class="btn" disabled>Resend (60s)</button>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up - Utkarsh Portfolio</title>
+  <style>
+    body { background: #0a0f1c; color: white; font-family: Arial, sans-serif; display:flex; justify-content:center; align-items:center; height:100vh; }
+    .box { background:#111a2f; padding:30px; border-radius:12px; text-align:center; width:300px; }
+    input { width:100%; padding:10px; margin:10px 0; border:none; border-radius:8px; }
+    button { padding:10px; width:100%; border:none; border-radius:8px; background:#1e90ff; color:white; font-size:16px; cursor:pointer; }
+    button:hover { background:#0d6efd; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Sign Up</h2>
+    <input type="email" id="signupEmail" placeholder="Email" />
+    <input type="password" id="signupPassword" placeholder="Password" />
+    <button onclick="signup()">Sign Up</button>
+    <p>Already have an account? <a href="login.html">Login</a></p>
   </div>
-  <p>Already have an account? <a href="login.html">Login</a></p>
-</div>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-<script src="js/app.js"></script>
-</body></html>
+  <script src="firebase-config.js"></script>
+  <script src="auth.js"></script>
+</body>
+</html>
