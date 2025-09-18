@@ -3,38 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact - Utkarsh Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-  <script>
-    (function() {
-      emailjs.init("MVNLMa6XAnCSIfOnY"); // Your Public Key
-    })();
-  </script>
+  <title>Contact</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
 </head>
 <body>
-  <div class="hamburger" onclick="toggleSidebar()">☰</div>
+  <!-- Hamburger for mobile -->
+  <div class="hamburger"><i class="fas fa-bars"></i></div>
 
-  <div class="sidebar" id="sidebar">
-    <div class="profile"><div class="avatar">U</div></div>
-    <a href="index.html"><i class="fas fa-home"></i></a>
-    <a href="about.html"><i class="fas fa-user"></i></a>
-    <a href="projects.html"><i class="fas fa-box"></i></a>
-    <a href="game.html"><i class="fas fa-gamepad"></i></a>
-    <a href="contact.html"><i class="fas fa-envelope"></i></a>
-    <a href="resume.pdf" target="_blank"><i class="fas fa-file"></i></a>
-    <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i></a>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i><span>Home</span></a></li>
+      <li><a href="about.html"><i class="fas fa-user"></i><span>About</span></a></li>
+      <li><a href="projects.html"><i class="fas fa-layer-group"></i><span>Projects</span></a></li>
+      <li><a href="contact.html"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
+      <li><a href="assets/Utkarsh_Modern_Resume.pdf" target="_blank"><i class="fas fa-file-alt"></i><span>Resume</span></a></li>
+      <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
+    </ul>
   </div>
 
-  <main>
-    <h1>Contact Me</h1>
-    <form id="contactForm">
-      <input type="text" name="from_name" placeholder="Your Name" required>
-      <input type="email" name="reply_to" placeholder="Your Email" required>
-      <textarea name="message" placeholder="Message" required></textarea>
-      <button type="submit">Send</button>
+  <!-- Main Content -->
+  <div class="content">
+    <h2 data-aos="fade-up">Contact Me</h2>
+    <form id="contactForm" data-aos="fade-up">
+      <label for="name">Name</label><br>
+      <input type="text" id="name" required><br><br>
+
+      <label for="email">Email</label><br>
+      <input type="email" id="email" required><br><br>
+
+      <label for="message">Message</label><br>
+      <textarea id="message" rows="5" required></textarea><br><br>
+
+      <button type="submit" class="btn">Send</button>
     </form>
-    <p id="status"></p>
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>    <p id="status"></p>
   </main>
 
   <script>
