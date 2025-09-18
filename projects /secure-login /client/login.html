@@ -1,9 +1,1 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Secure Login Demo</title><link rel="stylesheet" href="../../assets/style.css"></head><body>
-<div style="min-height:100vh;display:flex;align-items:center;justify-content:center"><div style="width:360px;background:rgba(10,14,20,0.7);padding:20px;border-radius:12px"><h3>Secure Login Demo</h3><input id="u" placeholder="username" style="width:100%;padding:8px;margin:6px 0"/><input id="p" placeholder="password" type="password" style="width:100%;padding:8px;margin:6px 0"/><button id="btn" style="padding:8px 12px;background:linear-gradient(90deg,#007bff,#00d1ff);border:none;color:#04111a;border-radius:8px">Login</button><p style="margin-top:8px;color:#ccc">Demo creds: <strong>admin</strong> / <strong>1234</strong></p></div></div>
-<script>
-document.getElementById('btn').addEventListener('click',function(){
-  var u=document.getElementById('u').value.trim(),p=document.getElementById('p').value.trim();
-  if(u==='admin'&&p==='1234'){ alert('Demo login success (no server)'); window.open('../../home.html','_blank'); } else alert('Invalid');
-});
-</script>
-</body></html>
+<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Secure Login Demo</title><link rel='stylesheet' href='../../css/style.css'></head><body><div style='min-height:100vh;display:flex;align-items:center;justify-content:center'><div class='card' style='width:360px;text-align:center'><h3>Secure Login Demo</h3><input id='u' placeholder='username' class='input'><input id='p' placeholder='password' type='password' class='input'><button id='b' class='btn'>Login</button><p class='small'>Demo: admin / 1234</p></div></div><script>document.getElementById('b').addEventListener('click',function(){var u=document.getElementById('u').value,p=document.getElementById('p').value;if(u==='admin'&&p==='1234'){alert('Demo success'); window.open('../../home.html','_blank')} else alert('Invalid');});</script></body></html>
