@@ -22,19 +22,29 @@ body {
   top:15px;
   left:15px;
   z-index:1001;
-  font-size:28px;
-  background:#00aaff;
-  color:#fff;
-  border-radius:8px;
-  padding:8px 12px;
+  width:30px;
+  height:22px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
   cursor:pointer;
+  background:none;
+}
+.hamburger span {
+  display:block;
+  height:4px;
+  background:#fff;
+  border-radius:2px;
 }
 
 .sidebar {
   position:fixed;
-  top:0;
-  left:0;
-  height:100%;
+  top:20px;
+  left:20px;
+  height:auto;
+  max-height:80%;
+  border-radius:20px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.5);
   width:80px;
   background:#0d1726;
   display:flex;
