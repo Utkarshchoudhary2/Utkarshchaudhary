@@ -4,13 +4,23 @@ body {
   font-family: Arial, sans-serif;
   background:#0a0f1a;
   color:#fff;
+  overflow-x:hidden;
+}
+
+#particles-js {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
 }
 
 .hamburger {
   position:fixed;
   top:15px;
   left:15px;
-  z-index:1000;
+  z-index:1001;
   font-size:28px;
   background:#00aaff;
   color:#fff;
@@ -31,10 +41,18 @@ body {
   align-items:center;
   padding-top:20px;
   transition:width 0.3s;
-  z-index:999;
+  z-index:1000;
+  justify-content:space-between;
 }
 
 .sidebar.open { width:200px; }
+
+.sidebar .top, .sidebar .bottom {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  width:100%;
+}
 
 .sidebar .profile {
   width:50px;
@@ -56,37 +74,28 @@ body {
   width:100%;
 }
 
-.sidebar ul li {
-  width:100%;
-}
+.sidebar ul li { width:100%; }
 
 .sidebar ul li a {
   display:flex;
   align-items:center;
-  padding:15px;
+  justify-content:center;
+  padding:15px 0;
   color:#9ca3af;
   text-decoration:none;
-  font-size:16px;
+  font-size:20px;
   transition:0.2s;
 }
 
-.sidebar ul li a i {
-  margin-right:15px;
-  font-size:18px;
+.sidebar ul li a:hover { color:#00aaff; }
+
+.sidebar.open ul li a {
+  justify-content:flex-start;
+  padding-left:20px;
 }
 
-.sidebar ul li a:hover {
-  background:#1f2937;
-  color:#00aaff;
-}
-
-.sidebar ul li a span {
-  display:none;
-}
-
-.sidebar.open ul li a span {
-  display:inline;
-}
+.sidebar ul li a span { display:none; margin-left:15px; font-size:16px; }
+.sidebar.open ul li a span { display:inline; }
 
 .content {
   margin-left:70px;
@@ -94,9 +103,7 @@ body {
   transition:margin-left 0.3s;
 }
 
-.sidebar.open ~ .content {
-  margin-left:200px;
-}
+.sidebar.open ~ .content { margin-left:200px; }
 
 .btn {
   background:#00aaff;
@@ -107,11 +114,8 @@ body {
   cursor:pointer;
 }
 
-.btn:hover {
-  background:#0088cc;
-}
+.btn:hover { background:#0088cc; }
 
-/* Auth forms */
 .content.auth {
   max-width:400px;
   margin:80px auto;
@@ -128,6 +132,4 @@ body {
   border-radius:6px;
 }
 
-.content.auth .btn {
-  width:100%;
-}
+.content.auth .btn { width:100%; }
