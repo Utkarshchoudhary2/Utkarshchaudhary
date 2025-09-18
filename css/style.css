@@ -167,3 +167,32 @@ body {
   position: relative;
   z-index: 1;
 }
+
+/* Dark background like second screenshot */
+body {
+  background: #0d1117;
+  color: #fff;
+}
+
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.content-overlay {
+  position: relative;
+  z-index: 1;
+}
+
+/* Remember me left aligned */
+.form-check {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: flex-start;
+  margin: 10px 0;
+}
