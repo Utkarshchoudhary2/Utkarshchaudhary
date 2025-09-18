@@ -1,20 +1,133 @@
-body { margin:0; font-family:Arial, Helvetica, sans-serif; background:#f5f5f5; color:#111; }
-.sidebar { position:fixed; top:0; left:0; width:80px; height:100vh; background:#111827; display:flex; flex-direction:column; align-items:center; padding-top:18px; z-index:1000; }
-.sidebar ul { list-style:none; padding:0; margin:0; }
-.sidebar ul li { margin:18px 0; width:100%; display:flex; justify-content:center; }
-.sidebar ul li a { color:#fff; text-decoration:none; display:flex; flex-direction:column; align-items:center; font-size:12px; width:56px; height:56px; border-radius:12px; }
-.sidebar ul li a i { font-size:20px; margin-bottom:4px; background:#00bfff; width:36px; height:36px; display:flex; align-items:center; justify-content:center; border-radius:50%; color:#fff; }
-.sidebar ul li a span { display:block; font-size:11px; margin-top:4px; color:#fff; }
-.content { margin-left:110px; padding:24px; }
-.hamburger { display:none; position:fixed; top:15px; left:15px; z-index:1100; font-size:20px; color:#fff; background:#00bfff; padding:6px 10px; border-radius:6px; cursor:pointer; }
-@media(max-width:768px){ .sidebar{ left:-220px; width:200px; transition:left .25s ease;} .sidebar.active{ left:0;} .content{ margin-left:0; } .hamburger{ display:block;} }
-.projects-grid{ display:flex; gap:20px; flex-wrap:wrap; }
-.card{ background:#fff; padding:18px; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.06); width:260px; }
-.btn{ display:inline-block; background:#00bfff; color:#fff; padding:8px 14px; border-radius:6px; text-decoration:none; }
-.btn:hover{ background:#007acc; }
-.toast{ position:fixed; bottom:20px; right:20px; background:#111827; color:#fff; padding:10px 16px; border-radius:8px; display:none; box-shadow:0 8px 20px rgba(0,0,0,0.12); }
-.toast.show{ display:block; animation:fadein .25s, fadeout .25s 2.5s; }
-@keyframes fadein{ from{opacity:0} to{opacity:1} } @keyframes fadeout{ from{opacity:1} to{opacity:0} }
-.content.auth{ max-width:420px; margin:60px auto; background:#fff; padding:20px; border-radius:8px; box-shadow:0 8px 24px rgba(0,0,0,0.06); }
-input[type="email"], input[type="password"], textarea, input[type="text"]{ width:100%; padding:10px; border:1px solid #ddd; border-radius:6px; box-sizing:border-box; }
-label{ font-weight:600; }
+
+body {
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:#0a0f1a;
+  color:#fff;
+}
+
+.hamburger {
+  position:fixed;
+  top:15px;
+  left:15px;
+  z-index:1000;
+  font-size:28px;
+  background:#00aaff;
+  color:#fff;
+  border-radius:8px;
+  padding:8px 12px;
+  cursor:pointer;
+}
+
+.sidebar {
+  position:fixed;
+  top:0;
+  left:0;
+  height:100%;
+  width:70px;
+  background:#111827;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding-top:20px;
+  transition:width 0.3s;
+  z-index:999;
+}
+
+.sidebar.open { width:200px; }
+
+.sidebar .profile {
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background:#00aaff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+  color:#fff;
+  margin-bottom:30px;
+}
+
+.sidebar ul {
+  list-style:none;
+  padding:0;
+  margin:0;
+  width:100%;
+}
+
+.sidebar ul li {
+  width:100%;
+}
+
+.sidebar ul li a {
+  display:flex;
+  align-items:center;
+  padding:15px;
+  color:#9ca3af;
+  text-decoration:none;
+  font-size:16px;
+  transition:0.2s;
+}
+
+.sidebar ul li a i {
+  margin-right:15px;
+  font-size:18px;
+}
+
+.sidebar ul li a:hover {
+  background:#1f2937;
+  color:#00aaff;
+}
+
+.sidebar ul li a span {
+  display:none;
+}
+
+.sidebar.open ul li a span {
+  display:inline;
+}
+
+.content {
+  margin-left:70px;
+  padding:20px;
+  transition:margin-left 0.3s;
+}
+
+.sidebar.open ~ .content {
+  margin-left:200px;
+}
+
+.btn {
+  background:#00aaff;
+  color:#fff;
+  padding:10px 18px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.btn:hover {
+  background:#0088cc;
+}
+
+/* Auth forms */
+.content.auth {
+  max-width:400px;
+  margin:80px auto;
+  background:#1f2937;
+  padding:30px;
+  border-radius:10px;
+}
+
+.content.auth input {
+  width:100%;
+  padding:10px;
+  margin-bottom:15px;
+  border:none;
+  border-radius:6px;
+}
+
+.content.auth .btn {
+  width:100%;
+}
