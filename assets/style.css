@@ -22,6 +22,9 @@ main{margin-left:120px;padding:40px;transition:margin-left .28s ease}
 h1,h2,h3{margin:0 0 10px}
 .lead{color:var(--muted)}
 
+/* particles container */
+#particles-js-full, #particles-js-projects{position:fixed;inset:0;z-index:0;pointer-events:none}
+
 /* projects */
 .projects-section{padding:40px 20px;position:relative;text-align:center;min-height:60vh}
 .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;z-index:2;position:relative;margin-top:24px}
