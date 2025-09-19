@@ -24,20 +24,20 @@
     <h1>Contact</h1>
     
 <form id="contact-form">
-  <input type="text" name="from_name" placeholder="Your Name" required><br>
-  <input type="email" name="reply_to" placeholder="Your Email" required><br>
-  <textarea name="message" placeholder="Your Message" required></textarea><br>
+  <input type="text" name="from_name" placeholder="Your Name" required><br><br>
+  <input type="email" name="reply_to" placeholder="Your Email" required><br><br>
+  <textarea name="message" placeholder="Your Message" required></textarea><br><br>
   <button type="submit">Send</button>
 </form>
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
 <script>
-(function(){{ emailjs.init("MVNLMa6XAnCSIfOnY"); }})();
-document.getElementById("contact-form").addEventListener("submit", function(e){{
+(function(){ emailjs.init("MVNLMa6XAnCSIfOnY"); })();
+document.getElementById("contact-form").addEventListener("submit", function(e){
   e.preventDefault();
   emailjs.sendForm("service_6bwckaq","template_otmgn2e", this)
-    .then(() => {{ alert("Message sent!"); this.reset(); }})
-    .catch(err => {{ alert("Failed: " + JSON.stringify(err)); }});
-}});
+    .then(() => { alert("Message sent!"); this.reset(); })
+    .catch(err => { alert("Failed: " + JSON.stringify(err)); });
+});
 </script>
 
   </div>
