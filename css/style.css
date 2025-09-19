@@ -10,9 +10,9 @@ body {
   position: fixed;
   width: 100%;
   height: 100%;
-  z-index: -1;
   top: 0;
   left: 0;
+  z-index: -1;
 }
 .sidebar {
   height: 100%;
@@ -20,15 +20,14 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #0a0f24;
+  background-color: #0a1435;
   transition: 0.3s;
   overflow-x: hidden;
   z-index: 1000;
+  padding-top: 20px;
 }
-.sidebar.expanded {
-  width: 200px;
-}
-.sidebar .ucircle {
+.sidebar.expanded { width: 200px; }
+.ucircle {
   height: 50px;
   width: 50px;
   border-radius: 50%;
@@ -39,57 +38,50 @@ body {
   justify-content: center;
   font-size: 22px;
   font-weight: bold;
-  margin: 20px auto;
+  margin: 10px auto 30px auto;
   cursor: pointer;
 }
 .sidebar a {
-  padding: 15px 10px;
+  padding: 12px 10px;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
   color: #fff;
   display: flex;
   align-items: center;
-  transition: 0.3s;
-  margin: 10px 5px;
+  margin: 8px 5px;
+  transition: 0.2s;
 }
-.sidebar a:hover {
-  background: rgba(255,255,255,0.1);
-  border-radius: 8px;
-}
+.sidebar a:hover { background: rgba(255,255,255,0.1); border-radius: 8px; }
 .sidebar i {
-  min-width: 40px;
-  text-align: center;
-  font-size: 20px;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  background: #007bff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  margin-right: 10px;
 }
-.sidebar span {
-  display: none;
-}
-.sidebar.expanded span {
-  display: inline;
-}
+.sidebar span { display: none; }
+.sidebar.expanded span { display: inline; }
 .main {
   margin-left: 70px;
   padding: 20px;
   transition: 0.3s;
   position: relative;
-  z-index: 1;
+  z-index: 10;
 }
-.sidebar.expanded ~ .main {
-  margin-left: 200px;
-}
+.sidebar.expanded ~ .main { margin-left: 200px; }
 .card {
-  background: rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.08);
   padding: 20px;
   border-radius: 12px;
   margin-bottom: 20px;
 }
 .card h2 { color: #00aaff; }
 button {
-  background:#007bff;
-  color:#fff;
-  border:none;
-  padding:10px 20px;
-  border-radius:6px;
-  cursor:pointer;
+  background:#007bff;color:#fff;border:none;
+  padding:10px 20px;border-radius:6px;cursor:pointer;
 }
 button:hover {background:#0056b3;}
