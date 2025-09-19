@@ -1,0 +1,51 @@
+:root{--bg:#071021;--panel:rgba(8,12,20,0.75);--text:#e6eef6;--muted:#95a3b3;--accent:#00bfff;--accent-dark:#0077cc}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,Arial;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+/* sidebar */
+.sidebar{position:fixed;left:18px;top:18px;width:84px;height:calc(100% - 36px);background:var(--panel);backdrop-filter:blur(8px);border-radius:14px;padding:12px;display:flex;flex-direction:column;align-items:center;gap:12px;z-index:1400;transition:width .28s ease}
+.sidebar.open{width:260px}
+.logo{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#007bff,#00d4ff);display:flex;align-items:center;justify-content:center;font-weight:800;color:#04111a;font-size:20px}
+.logo-text{display:none;font-weight:800;margin-top:6px}
+.sidebar.open .logo-text{display:block}
+.nav{margin-top:6px;display:flex;flex-direction:column;gap:6px;width:100%}
+.nav a{display:flex;align-items:center;gap:12px;padding:10px;border-radius:10px;color:var(--muted);text-decoration:none;position:relative}
+.nav a i{width:28px;text-align:center;font-size:18px;color:var(--accent)}
+.nav a span{display:none;font-weight:700}
+.sidebar.open .nav a span{display:inline-block;color:var(--text)}
+.resume-btn{margin-top:auto;width:calc(100% - 24px);display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px;border-radius:10px;background:linear-gradient(90deg,#007bff,#00d1ff);color:#04111a;font-weight:800;text-decoration:none;box-shadow:0 10px 30px rgba(0,140,255,0.12)}
+
+/* main content */
+main{margin-left:120px;padding:40px;transition:margin-left .28s ease}
+.sidebar.open ~ main{margin-left:300px}
+
+/* generic */
+.container{max-width:1100px;margin:0 auto;padding:20px}
+h1,h2,h3{margin:0 0 10px}
+.lead{color:var(--muted)}
+
+/* projects */
+.projects-section{padding:40px 20px;position:relative;text-align:center;min-height:60vh}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;z-index:2;position:relative;margin-top:24px}
+.project-card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:20px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.4);transition:transform .28s ease,box-shadow .28s ease}
+.project-card:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 14px 36px rgba(0,0,0,0.6)}
+.project-card .icon{font-size:28px;margin-bottom:8px}
+.project-card.highlight{border:1px solid rgba(0,191,255,0.12)}
+
+/* login/signup */
+.center-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px;position:relative;overflow:hidden}
+.card{width:420px;max-width:94%;background:rgba(10,14,20,0.6);backdrop-filter:blur(8px);padding:28px;border-radius:14px;box-shadow:0 12px 40px rgba(2,6,23,0.6);color:var(--text)}
+.input{display:block;width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text);margin:10px 0}
+.btn{display:inline-block;padding:10px 16px;border-radius:10px;background:linear-gradient(90deg,#007bff,#00d1ff);color:#04111a;font-weight:700;border:none;cursor:pointer}
+.small{font-size:13px;color:var(--muted)}
+
+/* spinner */
+.loader-wrap{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:var(--bg);z-index:2000;transition:opacity .4s ease}
+.loader {width:76px;height:76px;border-radius:50%;display:grid;place-items:center;border:6px solid rgba(255,255,255,0.06);border-top-color:var(--accent);animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loader-text{color:var(--muted);margin-top:12px;font-size:14px}
+
+/* toast */
+.toast-wrap{position:fixed;right:18px;bottom:18px;z-index:2500;display:flex;flex-direction:column;gap:8px}
+.toast{min-width:220px;padding:10px 14px;border-radius:8px;color:#04111a;font-weight:700;background:linear-gradient(90deg,#7ef9b4,#00d1ff);box-shadow:0 8px 30px rgba(0,0,0,0.4)}
+
+/* responsive */
+@media(max-width:900px){main{margin-left:88px}.sidebar{left:10px;top:10px;width:68px;padding:8px}.sidebar.open{width:220px}}
