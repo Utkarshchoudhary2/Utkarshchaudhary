@@ -7,7 +7,12 @@ function showToast(msg, ok=true){
   const t = document.createElement('div'); t.className='toast'; t.textContent=msg; container.appendChild(t);
   setTimeout(()=>{ t.style.opacity='0'; setTimeout(()=>t.remove(),400); }, 3000);
 }
-
+  // particles on home and projects if present
+  if(document.getElementById('particles-js-full') && window.particlesJS){
+    particlesJS('particles-js-full', {"particles":{"number":{"value":60},"color":{"value":"#00bfff"},"opacity":{"value":0.12},"size":{"value":3},"move":{"speed":0.6}},"interactivity":{"events":{"onhover":{"enable":false}}}});
+  }
+  if(document.getElementById('particles-js-projects') && window.particlesJS){
+    particlesJS('particles-js-projects', {"particles":{"number":{"value":45},"color":{"value":"#00bfff"},"opacity":{"value":0.08},"size":{"value":3},"move":{"speed":0.4}},"interactivity":{"events":{"onhover":{"enable":false}}}});
 // spinner controls
 function showLoader(){ const el=document.getElementById('global-loader'); if(el) el.style.display='flex'; }
 function hideLoader(){ const el=document.getElementById('global-loader'); if(el) el.style.display='none'; }
