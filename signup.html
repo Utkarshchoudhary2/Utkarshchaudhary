@@ -1,0 +1,22 @@
+<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Sign Up - Utkarsh</title>
+<link rel="stylesheet" href="assets/style.css"></head><body>
+<div id="global-loader" class="loader-wrap"><div><div class="loader"></div><div class="loader-text">Utkarsh Portfolio Loading…</div></div></div>
+<div class="center-wrap">
+  <div class="card" data-aos="fade-up">
+    <h2>Create account</h2>
+    <p class="small">Register to access the portfolio</p>
+    <input id="email" class="input" placeholder="Email" type="email">
+    <input id="password" class="input" placeholder="Password" type="password">
+    <label style="display:flex;align-items:center;gap:8px"><input id="remember" type="checkbox"> <span class="small">Remember me</span></label>
+    <button id="signupBtn" class="btn">Sign up</button>
+    <p class="small" style="margin-top:8px">Already have an account? <a href="login.html">Login</a></p>
+  </div>
+</div>
+<script type="module">import {firebaseConfig as _cfg} from './assets/firebase-config.js'; window.firebaseConfig=_cfg;</script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="assets/auth-client.js"></script>
+<script src="assets/script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){ hideLoader(); document.getElementById('signupBtn').addEventListener('click', async function(){ const email=document.getElementById('email').value; const pw=document.getElementById('password').value; const rem=document.getElementById('remember').checked; try{ await doSignup(email,pw,rem); showToast('Signup successful'); window.location.href='login.html'; } catch(e){ showToast('Signup failed: '+ (e.message||e),'error'); } }); });</script>
+</body></html>

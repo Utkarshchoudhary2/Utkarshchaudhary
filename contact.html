@@ -1,47 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact</title>
-  <link rel="stylesheet" href="./css/style.css">
-  <script src="https://kit.fontawesome.com/4b3a4d3f7f.js" crossorigin="anonymous"></script>
-</head>
-<body>
-  <div id="particles-js"></div>
-  
-  <div id="sidebar" class="sidebar">
-    <div class="ucircle" onclick="toggleSidebar()">U</div>
-    <a href="index.html"><i class="fas fa-home"></i> <span>Home</span></a>
-    <a href="about.html"><i class="fas fa-user"></i> <span>About</span></a>
-    <a href="projects.html"><i class="fas fa-layer-group"></i> <span>Projects</span></a>
-    <a href="contact.html"><i class="fas fa-envelope"></i> <span>Contact</span></a>
-    <a href="resume.pdf" target="_blank"><i class="fas fa-file"></i> <span>Resume</span></a>
-    <a href="#"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a>
-  </div>
-
-  <div class="main">
-    <h1>Contact</h1>
-    
-<form id="contact-form">
-  <input type="text" name="from_name" placeholder="Your Name" required><br><br>
-  <input type="email" name="reply_to" placeholder="Your Email" required><br><br>
-  <textarea name="message" placeholder="Your Message" required></textarea><br><br>
-  <button type="submit">Send</button>
-</form>
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
-<script>
-(function(){ emailjs.init("MVNLMa6XAnCSIfOnY"); })();
-document.getElementById("contact-form").addEventListener("submit", function(e){
-  e.preventDefault();
-  emailjs.sendForm("service_6bwckaq","template_otmgn2e", this)
-    .then(() => { alert("Message sent!"); this.reset(); })
-    .catch(err => { alert("Failed: " + JSON.stringify(err)); });
-});
-</script>
-
-  </div>
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script src="./js/script.js"></script>
-</body>
-</html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Contact - Utkarsh</title>
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head><body><aside class="sidebar" role="navigation" aria-label="Main sidebar">
+  <div class="logo">U</div>
+  <div class="logo-text">Utkarsh</div>
+  <nav class="nav" role="menu">
+    <a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i><span>Home</span></a>
+    <a href="about.html" class="nav-link"><i class="fa-solid fa-user"></i><span>About</span></a>
+    <a href="projects.html" class="nav-link"><i class="fa-solid fa-layer-group"></i><span>Projects</span></a>
+    <a href="game.html" class="nav-link"><i class="fa-solid fa-gamepad"></i><span>Game</span></a>
+    <a href="contact.html" class="nav-link"><i class="fa-solid fa-envelope"></i><span>Contact</span></a>
+  </nav>
+  <a class="resume-btn" href="assets/resume.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-file-pdf"></i><span>Resume</span></a>
+  <button id="logoutBtn" style="margin-top:8px;background:transparent;border:none;color:var(--muted);cursor:pointer;padding:8px;border-radius:8px">Logout</button>
+</aside>
+<div id="global-loader" class="loader-wrap"><div><div class="loader"></div><div class="loader-text">Utkarsh Portfolio Loading…</div></div></div><main><section class='section container' data-aos='fade-up'><h2>Contact</h2><p class='lead'>Email: your.email@example.com</p></section></main><div class="toast-wrap"></div>
+<script type="module">import {firebaseConfig as _cfg} from './assets/firebase-config.js'; window.firebaseConfig=_cfg;</script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="assets/auth-client.js"></script>
+<script src="assets/script.js"></script>
+<script>document.addEventListener('DOMContentLoaded',function(){AOS.init({duration:800,once:true}); hideLoader(); });</script>
+</body></html>

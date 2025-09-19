@@ -1,0 +1,23 @@
+<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Login - Utkarsh</title>
+<link rel="stylesheet" href="assets/style.css"></head><body>
+<div id="global-loader" class="loader-wrap"><div><div class="loader"></div><div class="loader-text">Utkarsh Portfolio Loading…</div></div></div>
+<div class="center-wrap">
+  <div class="card" data-aos="fade-up">
+    <h2>Welcome back</h2>
+    <p class="small">Sign in to access the portfolio</p>
+    <input id="email" class="input" placeholder="Email" type="email">
+    <input id="password" class="input" placeholder="Password" type="password">
+    <label style="display:flex;align-items:center;gap:8px"><input id="remember" type="checkbox"> <span class="small">Remember me</span></label>
+    <button id="loginBtn" class="btn">Sign in</button>
+    <p class="small" style="margin-top:8px">Don't have an account? <a href="signup.html">Sign up</a></p>
+    <p class="small" style="margin-top:10px;color:var(--muted)">Demo: test@demo.com / 123456 (works offline)</p>
+  </div>
+</div>
+<script type="module">import {firebaseConfig as _cfg} from './assets/firebase-config.js'; window.firebaseConfig=_cfg;</script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="assets/auth-client.js"></script>
+<script src="assets/script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){ hideLoader(); document.getElementById('loginBtn').addEventListener('click', async function(){ const email=document.getElementById('email').value; const pw=document.getElementById('password').value; const rem=document.getElementById('remember').checked; try{ await doLogin(email,pw,rem); showToast('Login successful'); window.location.href='index.html'; } catch(e){ showToast('Login failed: '+ (e.message||e),'error'); } }); });</script>
+</body></html>
