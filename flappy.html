@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Flappy Bird Game</title>
+  <style>
+    body {margin:0;overflow:hidden;}
+    canvas {display:block;margin:0 auto;background:#70c5ce;}
+  </style>
+</head>
+<body>
+<canvas id="gameCanvas" width="320" height="480"></canvas>
+<script>
+const canvas=document.getElementById("gameCanvas");
+const ctx=canvas.getContext("2d");
+let frames=0;
+const bird={{x:50,y:150,w:30,h:30,gravity:0.25,jump:4.6,speed:0}};
+function flap(){{bird.speed=-bird.jump;}}
+canvas.addEventListener("click",flap);
+function update(){{bird.speed+=bird.gravity;bird.y+=bird.speed;if(bird.y+bird.h>=canvas.height){{bird.y=canvas.height-bird.h;bird.speed=0;}}}}
+function draw(){{ctx.fillStyle="#70c5ce";ctx.fillRect(0,0,canvas.width,canvas.height);ctx.fillStyle="yellow";ctx.fillRect(bird.x,bird.y,bird.w,bird.h);}}
+function loop(){{update();draw();frames++;requestAnimationFrame(loop);}}
+loop();
+</script>
+</body>
+</html>
