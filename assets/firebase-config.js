@@ -1,4 +1,4 @@
-// firebase-config.js - paste your Firebase web app config below (CDN method)
+// paste your Firebase web app config here (CDN method)
 export const firebaseConfig = {
   apiKey: "YOUR_API_KEY",
   authDomain: "YOUR_PROJECT.firebaseapp.com",

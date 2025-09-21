@@ -1,82 +1,73 @@
-/* assets/script.js - handles sidebar toggle, auth check (Firebase if configured), demo fallback, spinner, toast */
-const useFirebase = typeof window.firebaseConfig !== 'undefined' && window.firebaseConfig.apiKey && window.firebaseConfig.apiKey !== 'YOUR_API_KEY';
-
-// simple toast
-function showToast(msg, ok=true){
-  const container = document.querySelector('.toast-wrap') || (function(){const d=document.createElement('div');d.className='toast-wrap';document.body.appendChild(d);return d;})();
-  const t = document.createElement('div'); t.className='toast'; t.textContent=msg; container.appendChild(t);
-  setTimeout(()=>{ t.style.opacity='0'; setTimeout(()=>t.remove(),400); }, 3000);
-}
-  // particles on home and projects if present
-  if(document.getElementById('particles-js-full') && window.particlesJS){
-    particlesJS('particles-js-full', {"particles":{"number":{"value":60},"color":{"value":"#00bfff"},"opacity":{"value":0.12},"size":{"value":3},"move":{"speed":0.6}},"interactivity":{"events":{"onhover":{"enable":false}}}});
-  }
-  if(document.getElementById('particles-js-projects') && window.particlesJS){
-    particlesJS('particles-js-projects', {"particles":{"number":{"value":45},"color":{"value":"#00bfff"},"opacity":{"value":0.08},"size":{"value":3},"move":{"speed":0.4}},"interactivity":{"events":{"onhover":{"enable":false}}}});
-// spinner controls
-function showLoader(){ const el=document.getElementById('global-loader'); if(el) el.style.display='flex'; }
-function hideLoader(){ const el=document.getElementById('global-loader'); if(el) el.style.display='none'; }
-
-// sidebar toggle
-document.addEventListener('DOMContentLoaded', ()=>{
-  const sidebar = document.querySelector('.sidebar');
+/* basic script: hamburger toggle, auth demo, loader, toast, demo buttons open new tab */
+document.addEventListener('DOMContentLoaded', function(){
+  // hamburger toggle
   const ham = document.querySelector('.hamburger');
-  if(ham) ham.addEventListener('click', ()=> sidebar.classList.toggle('open'));
+  const sidebar = document.querySelector('.sidebar');
+  if(ham && sidebar){
+    ham.addEventListener('click', ()=> sidebar.classList.toggle('open'));
+  }
 
-  // logout button
+  // demo login logic - buttons
+  const loginBtn = document.getElementById('loginBtn');
+  if(loginBtn){
+    loginBtn.addEventListener('click', async ()=>{
+      const email = document.getElementById('email').value.trim();
+      const pw = document.getElementById('password').value.trim();
+      const remember = document.getElementById('remember')?.checked;
+      // demo check
+      if((email==='test@demo.com' && pw==='123456') || (email==='admin' && pw==='1234')){
+        if(remember) localStorage.setItem('demo_token','1'); else sessionStorage.setItem('demo_token','1');
+        showToast('Login successful');
+        setTimeout(()=> location.href='index.html',600);
+      } else {
+        showToast('Invalid credentials', false);
+        const c = document.querySelector('.card'); if(c){ c.animate([{transform:'translateX(0)'},{transform:'translateX(-8px)'},{transform:'translateX(8px)'},{transform:'translateX(0)'}],{duration:480}) }
+      }
+    });
+  }
+
+  const signupBtn = document.getElementById('signupBtn');
+  if(signupBtn){
+    signupBtn.addEventListener('click', ()=>{
+      showToast('Signup demo: account created. Use test@demo.com / 123456 to login');
+      setTimeout(()=> location.href='login.html',800);
+    });
+  }
+
+  // demo logout
   const logoutBtn = document.getElementById('logoutBtn');
-  if(logoutBtn) logoutBtn.addEventListener('click', ()=>{
-    if(window.firebaseAuth){
-      window.firebaseAuth.signOut().then(()=>{ localStorage.removeItem('demo_token'); window.location.href='login.html'; });
-    } else {
-      localStorage.removeItem('demo_token'); window.location.href='login.html';
-    }
+  if(logoutBtn){
+    logoutBtn.addEventListener('click', ()=>{
+      localStorage.removeItem('demo_token'); sessionStorage.removeItem('demo_token'); location.href='login.html';
+    });
+  }
+
+  // project demo buttons - open in new tab
+  document.querySelectorAll('.btn-demo').forEach(b=>{
+    b.addEventListener('click', (e)=>{
+      const url = e.currentTarget.getAttribute('data-url');
+      if(url) window.open(url, '_blank', 'noopener');
+    });
   });
+
+  // hide loader early
+  const loader = document.getElementById('global-loader');
+  if(loader) setTimeout(()=> loader.style.display='none', 600);
 });
 
-// auth helpers (demo fallback)
-async function demoSignIn(email,password,remember){
-  if(email==='test@demo.com' && password==='123456'){
-    if(remember) localStorage.setItem('demo_token','1'); else sessionStorage.setItem('demo_token','1');
-    return {email:'test@demo.com', uid:'demo'};
-  } else throw new Error('Invalid demo credentials');
+function showToast(msg, ok=true){
+  const wrap = document.querySelector('.toast-wrap') || (function(){ const d=document.createElement('div'); d.className='toast-wrap'; document.body.appendChild(d); return d; })();
+  const t = document.createElement('div'); t.className='toast'; t.textContent=msg; if(!ok) t.style.background='linear-gradient(90deg,#ff9b9b,#ff8b8b)'; wrap.appendChild(t);
+  setTimeout(()=> t.style.opacity='0', 3200); setTimeout(()=> t.remove(), 3600);
 }
 
-async function checkAuthAndRedirect(){
-  showLoader();
-  if(useFirebase){
-    try{
-      // initialize firebase (modular via CDN)
-      const app = firebase.initializeApp(window.firebaseConfig);
-      const auth = firebase.getAuth(app);
-      window.firebaseAuth = auth;
-      firebase.onAuthStateChanged(auth, user=>{
-        if(!user){
-          hideLoader();
-          if(!location.pathname.endsWith('login.html') && !location.pathname.endsWith('signup.html')) location.href='login.html';
-        } else {
-          hideLoader();
-        }
-      });
-    }catch(e){
-      console.warn('Firebase init error',e);
-      // fallback to demo check
-      if(!localStorage.getItem('demo_token') && !sessionStorage.getItem('demo_token')){
-        hideLoader(); if(!location.pathname.endsWith('login.html') && !location.pathname.endsWith('signup.html')) location.href='login.html';
-      } else hideLoader();
-    }
-  } else {
-    // demo fallback
+// auth protection on pages: redirect to login if not demo-token present (if not on login/signup)
+(function(){
+  const path = location.pathname.split('/').pop();
+  if(path !== 'login.html' && path !== 'signup.html'){
     if(!localStorage.getItem('demo_token') && !sessionStorage.getItem('demo_token')){
-      hideLoader(); if(!location.pathname.endsWith('login.html') && !location.pathname.endsWith('signup.html')) location.href='login.html';
-    } else hideLoader();
+      // if firebase not set, redirect to login (demo)
+      setTimeout(()=> location.href='login.html', 300);
+    }
   }
-}
-
-// run on pages to enforce auth
-if(!location.pathname.endsWith('login.html') && !location.pathname.endsWith('signup.html')){
-  document.addEventListener('DOMContentLoaded', ()=>{ checkAuthAndRedirect(); });
-}
-
-// simple helper to open external in new tab safely
-function openNew(url){ window.open(url,'_blank','noopener'); }
+})();
