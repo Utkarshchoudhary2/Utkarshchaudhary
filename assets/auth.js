@@ -1,9 +1,16 @@
-// auth.js - simple wrapper for demo offline login.
-// If Firebase config is provided and Firebase SDKs loaded, auth-client will attempt real auth.
-async function demoSignInDirect(email,password,remember){
-  if(email==='test@demo.com' && password==='123456'){
-    if(remember) localStorage.setItem('demo_token','1'); else sessionStorage.setItem('demo_token','1');
-    return true;
+const auth = firebase.auth();
+const protectedPages = [
+  "index.html","about.html","projects.html",
+  "resume.html","contact.html","game.html"
+];
+
+auth.onAuthStateChanged(user => {
+  const page = location.pathname.split("/").pop();
+  if (!user && protectedPages.includes(page)) {
+    location.href = "login.html";
   }
-  throw new Error('Invalid demo credentials');
+});
+
+function logout() {
+  auth.signOut().then(()=>location.href="login.html");
 }
