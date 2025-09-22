@@ -23,4 +23,24 @@
 <script src="assets/auth-client.js"></script>
 <script src="assets/script.js"></script>
 <script>document.addEventListener('DOMContentLoaded',function(){AOS.init({duration:800,once:true}); hideLoader(); });</script>
+  <form id="contactForm">
+  <input type="text" name="name" placeholder="Name" required />
+  <input type="email" name="email" placeholder="Email" required />
+  <textarea name="message" placeholder="Comment" required></textarea>
+  <button type="submit">Send</button>
+</form>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  emailjs.init("MVNLMa6XAnCSIfOnY");
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    emailjs.send("service_6bwckaq","template_otmgn2e",{
+      name: this.name.value,
+      email: this.email.value,
+      message: this.message.value
+    }).then(()=>alert("Message sent!"),
+            err=>alert("Failed: "+JSON.stringify(err)));
+  });
+</script>
 </body></html>
